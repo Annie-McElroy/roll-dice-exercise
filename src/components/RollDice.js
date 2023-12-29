@@ -13,15 +13,17 @@ class RollDice extends Component {
     };
 
     roll () {
+        // pick 2 new dice
         const newDie1 = this.props.sides[
             Math.floor(Math.random() * this.props.sides.length)
         ];
-        
+
         const newDie2 = this.props.sides[
             Math.floor(Math.random() * this.props.sides.length)
-        ];
+        ]
 
-        this.setState({ die1: newDie1. die2 = newDie2 });
+        // set state with new dice
+        this.setState({ die1: newDie1, die2: newDie2 })
     }
 
     render() {
