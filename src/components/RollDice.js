@@ -39,7 +39,9 @@ class RollDice extends Component {
                     <Die num={this.state.die1} rolling={this.state.rolling} />
                     <Die num={this.state.die2} rolling={this.state.rolling} />
                 </div>
-                <button onClick={this.roll} disabled={this.state.rolling} >{this.state.rolling ? "Rolling...." : "Roll Dice!"}</button>
+                <button onClick={this.roll} disabled={this.state.rolling}>
+                    {this.state.rolling ? "Rolling...." : "Roll Dice!"}
+                </button>
             </div>
         )
     }
