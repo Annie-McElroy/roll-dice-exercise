@@ -1,0 +1,39 @@
+.RollDice {
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 100vh;
+}
+
+.RollDice-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.RollDice button {
+    align-self: center;
+    background-color: #2a301b;
+    color: white;
+    width: 12em;
+    border: 0px;
+    border-radius: 50% 20% / 10% 40%;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.RollDice button:hover {
+    background-color: #60a12a;
+    cursor: pointer;
+}
+
+.Die {
+    font-size: 10em;
+    padding: 1%;
+    color: #60a12a;
+    /* text-shadow: 5px 5px 2px #49532d; */
+}
+
+.shaking {
+    animation-name: wobble;
+    animation-duration: 5s;
+}

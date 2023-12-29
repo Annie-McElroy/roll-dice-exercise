@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Die from './Die';
+import '../Dice.css';
 
 class RollDice extends Component {
     static defaultProps = {
@@ -8,7 +9,7 @@ class RollDice extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { die1: "one", die2: "one" };
+        this.state = { die1: "one", die2: "one", rolling: false };
         this.roll = this.roll.bind(this);
     };
 
@@ -23,17 +24,22 @@ class RollDice extends Component {
         ]
 
         // set state with new dice
-        this.setState({ die1: newDie1, die2: newDie2 })
-    }
+        this.setState({ die1: newDie1, die2: newDie2, rolling: true })
+
+        // set timer to change rolling state to false one second after roll is called
+        setTimeout(() => {
+            this.setState({ rolling: false });
+        }, 1000);
+    };
 
     render() {
         return (
-            <div>
-                <div>
-                    <Die num={this.state.die1}/>
-                    <Die num={this.state.die2}/>
+            <div className='RollDice'>
+                <div className='RollDice-container'>
+                    <Die num={this.state.die1} rolling={this.state.rolling} />
+                    <Die num={this.state.die2} rolling={this.state.rolling} />
                 </div>
-                <button onClick={this.roll}>Roll Dice!</button>
+                <button onClick={this.roll} disabled={this.state.rolling} >{this.state.rolling ? "Rolling...." : "Roll Dice!"}</button>
             </div>
         )
     }
